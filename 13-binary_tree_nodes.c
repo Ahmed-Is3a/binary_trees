@@ -8,12 +8,14 @@
  */
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {
+	size_t left_count, right_count;
+
 	if (tree == NULL)
 		return (0);
 
 	/* Count nodes with at least one child recursively */
-	size_t left_count = binary_tree_nodes(tree->left);
-	size_t right_count = binary_tree_nodes(tree->right);
+	left_count = binary_tree_nodes(tree->left);
+	right_count = binary_tree_nodes(tree->right);
 
 	/* If both children are NULL, it's a leaf node */
 	if (tree->left != NULL || tree->right != NULL)
